@@ -1,4 +1,3 @@
-
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -31,6 +30,7 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { useStudents } from "@/contexts/StudentContext";
 
 const formSchema = z.object({
   fullName: z.string().min(2, {
@@ -51,8 +51,13 @@ const formSchema = z.object({
   status: z.string().default("active"),
 });
 
-export const StudentForm: React.FC = () => {
+interface StudentFormProps {
+  onSuccess?: () => void;
+}
+
+export const StudentForm: React.FC<StudentFormProps> = ({ onSuccess }) => {
   const { toast } = useToast();
+  const { addStudent } = useStudents();
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -65,12 +70,25 @@ export const StudentForm: React.FC = () => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    addStudent({
+      fullName: values.fullName,
+      email: values.email,
+      phone: values.phone,
+      dateOfBirth: values.dateOfBirth,
+      level: values.level,
+      status: values.status as "active" | "paused" | "completed",
+    });
+
     toast({
       title: "Студент успешно зарегистрирован",
       description: `${values.fullName} был(а) добавлен(а) в систему.`,
     });
+    
     form.reset();
+    
+    if (onSuccess) {
+      onSuccess();
+    }
   }
 
   return (

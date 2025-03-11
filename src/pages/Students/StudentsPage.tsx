@@ -17,6 +17,13 @@ const StudentsPage = () => {
     });
   };
 
+  const handleStudentAdded = () => {
+    setActiveTab("all-students");
+    toast("Возврат к списку студентов", {
+      description: "Новый студент был успешно добавлен и теперь отображается в списке."
+    });
+  };
+
   return (
     <MainLayout>
       <div className="flex flex-col gap-6">
@@ -47,7 +54,7 @@ const StudentsPage = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <StudentForm />
+                <StudentForm onSuccess={handleStudentAdded} />
               </CardContent>
             </Card>
           </TabsContent>

@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { StudentProvider } from "./contexts/StudentContext";
 import Index from "./pages/Index";
 import StudentsPage from "./pages/Students/StudentsPage";
 import CoursesPage from "./pages/Courses/CoursesPage";
@@ -18,21 +19,23 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/students" element={<StudentsPage />} />
-          <Route path="/courses" element={<CoursesPage />} />
-          <Route path="/teachers" element={<TeachersPage />} />
-          <Route path="/finance" element={<FinancePage />} />
-          <Route path="/communications" element={<CommunicationsPage />} />
-          <Route path="/analytics" element={<AnalyticsPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <StudentProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/students" element={<StudentsPage />} />
+            <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/teachers" element={<TeachersPage />} />
+            <Route path="/finance" element={<FinancePage />} />
+            <Route path="/communications" element={<CommunicationsPage />} />
+            <Route path="/analytics" element={<AnalyticsPage />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </StudentProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

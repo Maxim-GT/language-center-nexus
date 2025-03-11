@@ -20,70 +20,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { MoreHorizontal, Search, UserPlus } from "lucide-react";
-
-interface Student {
-  id: string;
-  fullName: string;
-  email: string;
-  phone: string;
-  level: string;
-  status: "active" | "paused" | "completed";
-  lastInteraction: string;
-  paymentStatus: "paid" | "overdue" | "partially";
-}
-
-const dummyStudents: Student[] = [
-  {
-    id: "1",
-    fullName: "Мария Родригез",
-    email: "maria.r@example.com",
-    phone: "+1 (555) 123-4567",
-    level: "intermediate",
-    status: "active",
-    lastInteraction: "2023-06-10",
-    paymentStatus: "paid",
-  },
-  {
-    id: "2",
-    fullName: "Джеймс Уилсон",
-    email: "james.w@example.com",
-    phone: "+1 (555) 234-5678",
-    level: "beginner",
-    status: "active",
-    lastInteraction: "2023-06-15",
-    paymentStatus: "partially",
-  },
-  {
-    id: "3",
-    fullName: "Анна Джонсон",
-    email: "anna.j@example.com",
-    phone: "+1 (555) 345-6789",
-    level: "advanced",
-    status: "completed",
-    lastInteraction: "2023-05-20",
-    paymentStatus: "paid",
-  },
-  {
-    id: "4",
-    fullName: "Дэвид Ли",
-    email: "david.l@example.com",
-    phone: "+1 (555) 456-7890",
-    level: "upperIntermediate",
-    status: "paused",
-    lastInteraction: "2023-04-30",
-    paymentStatus: "overdue",
-  },
-  {
-    id: "5",
-    fullName: "Сара Мартинез",
-    email: "sarah.m@example.com",
-    phone: "+1 (555) 567-8901",
-    level: "elementary",
-    status: "active",
-    lastInteraction: "2023-06-18",
-    paymentStatus: "paid",
-  }
-];
+import { useStudents, Student } from "@/contexts/StudentContext";
 
 interface StudentListProps {
   onAddStudent?: () => void;
@@ -91,8 +28,9 @@ interface StudentListProps {
 
 export const StudentList: React.FC<StudentListProps> = ({ onAddStudent }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const { students } = useStudents();
   
-  const filteredStudents = dummyStudents.filter(student => 
+  const filteredStudents = students.filter(student => 
     student.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
     student.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
