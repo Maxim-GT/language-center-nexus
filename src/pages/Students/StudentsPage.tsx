@@ -5,8 +5,18 @@ import { StudentList } from "@/components/Students/StudentList";
 import { StudentForm } from "@/components/Students/StudentForm";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "sonner";
 
 const StudentsPage = () => {
+  const [activeTab, setActiveTab] = useState("all-students");
+
+  const handleAddStudent = () => {
+    setActiveTab("add-student");
+    toast("Переход к форме добавления студента", {
+      description: "Заполните все поля формы для регистрации нового студента."
+    });
+  };
+
   return (
     <MainLayout>
       <div className="flex flex-col gap-6">
@@ -17,7 +27,7 @@ const StudentsPage = () => {
           </p>
         </div>
         
-        <Tabs defaultValue="all-students">
+        <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList>
             <TabsTrigger value="all-students">Все студенты</TabsTrigger>
             <TabsTrigger value="add-student">Добавить студента</TabsTrigger>
@@ -25,7 +35,7 @@ const StudentsPage = () => {
           </TabsList>
           
           <TabsContent value="all-students" className="mt-6">
-            <StudentList />
+            <StudentList onAddStudent={handleAddStudent} />
           </TabsContent>
           
           <TabsContent value="add-student" className="mt-6">

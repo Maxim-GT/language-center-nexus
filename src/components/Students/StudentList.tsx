@@ -19,7 +19,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { MoreHorizontal, Search } from "lucide-react";
+import { MoreHorizontal, Search, UserPlus } from "lucide-react";
 
 interface Student {
   id: string;
@@ -85,7 +85,11 @@ const dummyStudents: Student[] = [
   }
 ];
 
-export const StudentList: React.FC = () => {
+interface StudentListProps {
+  onAddStudent?: () => void;
+}
+
+export const StudentList: React.FC<StudentListProps> = ({ onAddStudent }) => {
   const [searchTerm, setSearchTerm] = useState("");
   
   const filteredStudents = dummyStudents.filter(student => 
@@ -151,7 +155,10 @@ export const StudentList: React.FC = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <Button>Добавить студента</Button>
+        <Button onClick={onAddStudent}>
+          <UserPlus className="mr-2 h-4 w-4" />
+          Добавить студента
+        </Button>
       </div>
       
       <div className="rounded-md border">
