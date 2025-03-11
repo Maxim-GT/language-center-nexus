@@ -34,19 +34,19 @@ import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   fullName: z.string().min(2, {
-    message: "Full name must be at least 2 characters.",
+    message: "ФИО должно содержать не менее 2 символов.",
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Пожалуйста, введите корректный email адрес.",
   }),
   phone: z.string().min(6, {
-    message: "Phone number must be at least 6 characters.",
+    message: "Номер телефона должен содержать не менее 6 символов.",
   }),
   dateOfBirth: z.date({
-    required_error: "Date of birth is required.",
+    required_error: "Дата рождения обязательна.",
   }),
   level: z.string({
-    required_error: "Please select a language level.",
+    required_error: "Пожалуйста, выберите уровень языка.",
   }),
   status: z.string().default("active"),
 });
@@ -67,8 +67,8 @@ export const StudentForm: React.FC = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Student registered successfully",
-      description: `${values.fullName} has been added to the system.`,
+      title: "Студент успешно зарегистрирован",
+      description: `${values.fullName} был(а) добавлен(а) в систему.`,
     });
     form.reset();
   }
@@ -81,9 +81,9 @@ export const StudentForm: React.FC = () => {
           name="fullName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Full Name</FormLabel>
+              <FormLabel>ФИО</FormLabel>
               <FormControl>
-                <Input placeholder="John Doe" {...field} />
+                <Input placeholder="Иван Иванов" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -98,7 +98,7 @@ export const StudentForm: React.FC = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="john.doe@example.com" {...field} />
+                  <Input placeholder="ivan.ivanov@example.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -110,9 +110,9 @@ export const StudentForm: React.FC = () => {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Phone Number</FormLabel>
+                <FormLabel>Номер телефона</FormLabel>
                 <FormControl>
-                  <Input placeholder="+1 (555) 000-0000" {...field} />
+                  <Input placeholder="+7 (999) 123-4567" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -126,7 +126,7 @@ export const StudentForm: React.FC = () => {
             name="dateOfBirth"
             render={({ field }) => (
               <FormItem className="flex flex-col">
-                <FormLabel>Date of Birth</FormLabel>
+                <FormLabel>Дата рождения</FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -140,7 +140,7 @@ export const StudentForm: React.FC = () => {
                         {field.value ? (
                           format(field.value, "PPP")
                         ) : (
-                          <span>Pick a date</span>
+                          <span>Выберите дату</span>
                         )}
                         <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                       </Button>
@@ -169,24 +169,24 @@ export const StudentForm: React.FC = () => {
             name="level"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Language Level</FormLabel>
+                <FormLabel>Уровень языка</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select a level" />
+                      <SelectValue placeholder="Выберите уровень" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="beginner">Beginner (A1)</SelectItem>
-                    <SelectItem value="elementary">Elementary (A2)</SelectItem>
-                    <SelectItem value="intermediate">Intermediate (B1)</SelectItem>
-                    <SelectItem value="upperIntermediate">Upper Intermediate (B2)</SelectItem>
-                    <SelectItem value="advanced">Advanced (C1)</SelectItem>
-                    <SelectItem value="proficient">Proficient (C2)</SelectItem>
+                    <SelectItem value="beginner">Начинающий (A1)</SelectItem>
+                    <SelectItem value="elementary">Элементарный (A2)</SelectItem>
+                    <SelectItem value="intermediate">Средний (B1)</SelectItem>
+                    <SelectItem value="upperIntermediate">Выше среднего (B2)</SelectItem>
+                    <SelectItem value="advanced">Продвинутый (C1)</SelectItem>
+                    <SelectItem value="proficient">Свободный (C2)</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormDescription>
-                  The student's current language proficiency level.
+                  Текущий уровень владения языком студента.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -199,28 +199,28 @@ export const StudentForm: React.FC = () => {
           name="status"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Status</FormLabel>
+              <FormLabel>Статус</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a status" />
+                    <SelectValue placeholder="Выберите статус" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="active">Active</SelectItem>
-                  <SelectItem value="paused">On Pause</SelectItem>
-                  <SelectItem value="completed">Completed Course</SelectItem>
+                  <SelectItem value="active">Активный</SelectItem>
+                  <SelectItem value="paused">На паузе</SelectItem>
+                  <SelectItem value="completed">Завершил курс</SelectItem>
                 </SelectContent>
               </Select>
               <FormDescription>
-                The current enrollment status of the student.
+                Текущий статус обучения студента.
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
         
-        <Button type="submit" className="w-full md:w-auto">Register Student</Button>
+        <Button type="submit" className="w-full md:w-auto">Зарегистрировать студента</Button>
       </form>
     </Form>
   );

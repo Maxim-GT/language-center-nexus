@@ -22,39 +22,39 @@ import {
 } from "recharts";
 
 const studentPerformanceData = [
-  { name: "Beginner (A1)", average: 85, highest: 95, lowest: 70 },
-  { name: "Elementary (A2)", average: 82, highest: 94, lowest: 68 },
-  { name: "Intermediate (B1)", average: 78, highest: 92, lowest: 65 },
-  { name: "Upper Int. (B2)", average: 76, highest: 90, lowest: 62 },
-  { name: "Advanced (C1)", average: 80, highest: 95, lowest: 70 },
-  { name: "Proficient (C2)", average: 88, highest: 98, lowest: 75 },
+  { name: "Начинающий (A1)", average: 85, highest: 95, lowest: 70 },
+  { name: "Элементарный (A2)", average: 82, highest: 94, lowest: 68 },
+  { name: "Средний (B1)", average: 78, highest: 92, lowest: 65 },
+  { name: "Выше сред. (B2)", average: 76, highest: 90, lowest: 62 },
+  { name: "Продвинутый (C1)", average: 80, highest: 95, lowest: 70 },
+  { name: "Свободный (C2)", average: 88, highest: 98, lowest: 75 },
 ];
 
 const trafficData = [
-  { month: "Jan", newStudents: 15, inquiries: 45, conversions: 10 },
-  { month: "Feb", newStudents: 20, inquiries: 60, conversions: 15 },
-  { month: "Mar", newStudents: 25, inquiries: 75, conversions: 18 },
-  { month: "Apr", newStudents: 22, inquiries: 65, conversions: 16 },
-  { month: "May", newStudents: 30, inquiries: 85, conversions: 22 },
-  { month: "Jun", newStudents: 35, inquiries: 95, conversions: 28 },
+  { month: "Янв", newStudents: 15, inquiries: 45, conversions: 10 },
+  { month: "Фев", newStudents: 20, inquiries: 60, conversions: 15 },
+  { month: "Мар", newStudents: 25, inquiries: 75, conversions: 18 },
+  { month: "Апр", newStudents: 22, inquiries: 65, conversions: 16 },
+  { month: "Май", newStudents: 30, inquiries: 85, conversions: 22 },
+  { month: "Июн", newStudents: 35, inquiries: 95, conversions: 28 },
 ];
 
 const revenueData = [
-  { month: "Jan", revenue: 12500, expenses: 10000, profit: 2500 },
-  { month: "Feb", revenue: 15000, expenses: 11200, profit: 3800 },
-  { month: "Mar", revenue: 18500, expenses: 12500, profit: 6000 },
-  { month: "Apr", revenue: 17000, expenses: 12800, profit: 4200 },
-  { month: "May", revenue: 20000, expenses: 13500, profit: 6500 },
-  { month: "Jun", revenue: 23500, expenses: 14200, profit: 9300 },
+  { month: "Янв", revenue: 12500, expenses: 10000, profit: 2500 },
+  { month: "Фев", revenue: 15000, expenses: 11200, profit: 3800 },
+  { month: "Мар", revenue: 18500, expenses: 12500, profit: 6000 },
+  { month: "Апр", revenue: 17000, expenses: 12800, profit: 4200 },
+  { month: "Май", revenue: 20000, expenses: 13500, profit: 6500 },
+  { month: "Июн", revenue: 23500, expenses: 14200, profit: 9300 },
 ];
 
 const courseDistributionData = [
-  { name: "English", value: 45, color: "#3b82f6" },
-  { name: "Spanish", value: 20, color: "#ef4444" },
-  { name: "French", value: 15, color: "#22c55e" },
-  { name: "German", value: 10, color: "#f59e0b" },
-  { name: "Italian", value: 5, color: "#8b5cf6" },
-  { name: "Others", value: 5, color: "#6b7280" },
+  { name: "Английский", value: 45, color: "#3b82f6" },
+  { name: "Испанский", value: 20, color: "#ef4444" },
+  { name: "Французский", value: 15, color: "#22c55e" },
+  { name: "Немецкий", value: 10, color: "#f59e0b" },
+  { name: "Итальянский", value: 5, color: "#8b5cf6" },
+  { name: "Другие", value: 5, color: "#6b7280" },
 ];
 
 const AnalyticsPage = () => {
@@ -62,25 +62,25 @@ const AnalyticsPage = () => {
     <MainLayout>
       <div className="flex flex-col gap-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Analytics & Reports</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Аналитика и отчеты</h1>
           <p className="text-muted-foreground">
-            View student performance, financial metrics, and other key statistics.
+            Просмотр успеваемости студентов, финансовых показателей и других ключевых статистик.
           </p>
         </div>
         
         <Tabs defaultValue="performance">
           <TabsList>
-            <TabsTrigger value="performance">Student Performance</TabsTrigger>
-            <TabsTrigger value="traffic">Traffic & Conversion</TabsTrigger>
-            <TabsTrigger value="financial">Financial Reports</TabsTrigger>
+            <TabsTrigger value="performance">Успеваемость студентов</TabsTrigger>
+            <TabsTrigger value="traffic">Трафик и конверсия</TabsTrigger>
+            <TabsTrigger value="financial">Финансовые отчеты</TabsTrigger>
           </TabsList>
           
           <TabsContent value="performance" className="mt-6">
             <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
               <Card>
                 <CardHeader>
-                  <CardTitle>Student Performance by Level</CardTitle>
-                  <CardDescription>Average, highest, and lowest scores</CardDescription>
+                  <CardTitle>Успеваемость студентов по уровням</CardTitle>
+                  <CardDescription>Средние, высшие и низшие баллы</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="h-80">
@@ -99,9 +99,9 @@ const AnalyticsPage = () => {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="average" name="Average Score" fill="#3b82f6" />
-                        <Bar dataKey="highest" name="Highest Score" fill="#22c55e" />
-                        <Bar dataKey="lowest" name="Lowest Score" fill="#ef4444" />
+                        <Bar dataKey="average" name="Средний балл" fill="#3b82f6" />
+                        <Bar dataKey="highest" name="Высший балл" fill="#22c55e" />
+                        <Bar dataKey="lowest" name="Низший балл" fill="#ef4444" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -110,8 +110,8 @@ const AnalyticsPage = () => {
               
               <Card>
                 <CardHeader>
-                  <CardTitle>Course Distribution</CardTitle>
-                  <CardDescription>Students enrolled by language</CardDescription>
+                  <CardTitle>Распределение курсов</CardTitle>
+                  <CardDescription>Студенты по языкам</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="h-80">
@@ -132,7 +132,7 @@ const AnalyticsPage = () => {
                           ))}
                         </Pie>
                         <Legend />
-                        <Tooltip formatter={(value) => `${value} students`} />
+                        <Tooltip formatter={(value) => `${value} студентов`} />
                       </PieChart>
                     </ResponsiveContainer>
                   </div>
@@ -144,8 +144,8 @@ const AnalyticsPage = () => {
           <TabsContent value="traffic" className="mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Student Acquisition</CardTitle>
-                <CardDescription>New students, inquiries, and conversion rate</CardDescription>
+                <CardTitle>Привлечение студентов</CardTitle>
+                <CardDescription>Новые студенты, запросы и коэффициент конверсии</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="h-96">
@@ -170,7 +170,7 @@ const AnalyticsPage = () => {
                         stackId="1"
                         stroke="#8884d8"
                         fill="#8884d8"
-                        name="Inquiries"
+                        name="Запросы"
                       />
                       <Area
                         type="monotone"
@@ -178,7 +178,7 @@ const AnalyticsPage = () => {
                         stackId="2"
                         stroke="#82ca9d"
                         fill="#82ca9d"
-                        name="New Students"
+                        name="Новые студенты"
                       />
                       <Area
                         type="monotone"
@@ -186,7 +186,7 @@ const AnalyticsPage = () => {
                         stackId="3"
                         stroke="#ffc658"
                         fill="#ffc658"
-                        name="Conversions"
+                        name="Конверсии"
                       />
                     </AreaChart>
                   </ResponsiveContainer>
@@ -198,8 +198,8 @@ const AnalyticsPage = () => {
           <TabsContent value="financial" className="mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Financial Performance</CardTitle>
-                <CardDescription>Revenue, expenses, and profit over time</CardDescription>
+                <CardTitle>Финансовые показатели</CardTitle>
+                <CardDescription>Доходы, расходы и прибыль по времени</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="h-96">
@@ -217,9 +217,9 @@ const AnalyticsPage = () => {
                       <XAxis dataKey="month" />
                       <YAxis 
                         tickFormatter={(value) => 
-                          new Intl.NumberFormat('en-US', {
+                          new Intl.NumberFormat('ru-RU', {
                             style: 'currency',
-                            currency: 'USD',
+                            currency: 'RUB',
                             minimumFractionDigits: 0,
                             maximumFractionDigits: 0,
                           }).format(value)
@@ -227,9 +227,9 @@ const AnalyticsPage = () => {
                       />
                       <Tooltip 
                         formatter={(value) => 
-                          new Intl.NumberFormat('en-US', {
+                          new Intl.NumberFormat('ru-RU', {
                             style: 'currency',
-                            currency: 'USD',
+                            currency: 'RUB',
                           }).format(Number(value))
                         } 
                       />
@@ -239,21 +239,21 @@ const AnalyticsPage = () => {
                         dataKey="revenue"
                         stroke="#3b82f6"
                         activeDot={{ r: 8 }}
-                        name="Revenue"
+                        name="Доходы"
                         strokeWidth={2}
                       />
                       <Line 
                         type="monotone" 
                         dataKey="expenses" 
                         stroke="#ef4444" 
-                        name="Expenses"
+                        name="Расходы"
                         strokeWidth={2}
                       />
                       <Line 
                         type="monotone" 
                         dataKey="profit" 
                         stroke="#22c55e" 
-                        name="Profit"
+                        name="Прибыль"
                         strokeWidth={2}
                       />
                     </LineChart>

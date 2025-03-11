@@ -20,20 +20,20 @@ import {
 } from "recharts";
 
 const revenueData = [
-  { month: "Jan", revenue: 12500 },
-  { month: "Feb", revenue: 15000 },
-  { month: "Mar", revenue: 18500 },
-  { month: "Apr", revenue: 17000 },
-  { month: "May", revenue: 20000 },
-  { month: "Jun", revenue: 23500 },
+  { month: "Янв", revenue: 12500 },
+  { month: "Фев", revenue: 15000 },
+  { month: "Мар", revenue: 18500 },
+  { month: "Апр", revenue: 17000 },
+  { month: "Май", revenue: 20000 },
+  { month: "Июн", revenue: 23500 },
 ];
 
 const studentsByLevelData = [
-  { name: "Beginner", value: 35, color: "#3b82f6" },
-  { name: "Elementary", value: 25, color: "#60a5fa" },
-  { name: "Intermediate", value: 20, color: "#93c5fd" },
-  { name: "Upper Int.", value: 15, color: "#bfdbfe" },
-  { name: "Advanced", value: 5, color: "#dbeafe" },
+  { name: "Начинающий", value: 35, color: "#3b82f6" },
+  { name: "Элементарный", value: 25, color: "#60a5fa" },
+  { name: "Средний", value: 20, color: "#93c5fd" },
+  { name: "Выше сред.", value: 15, color: "#bfdbfe" },
+  { name: "Продвинутый", value: 5, color: "#dbeafe" },
 ];
 
 const Index = () => {
@@ -41,9 +41,9 @@ const Index = () => {
     <MainLayout>
       <div className="flex flex-col gap-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Панель управления</h1>
           <p className="text-muted-foreground">
-            Welcome to the LinguaCRM dashboard.
+            Добро пожаловать в панель управления LinguaCRM.
           </p>
         </div>
         
@@ -52,8 +52,8 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle>Revenue Overview</CardTitle>
-              <CardDescription>Monthly revenue for the current year</CardDescription>
+              <CardTitle>Обзор доходов</CardTitle>
+              <CardDescription>Ежемесячный доход за текущий год</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="h-80">
@@ -71,9 +71,9 @@ const Index = () => {
                     <XAxis dataKey="month" />
                     <YAxis 
                       tickFormatter={(value) => 
-                        new Intl.NumberFormat('en-US', {
+                        new Intl.NumberFormat('ru-RU', {
                           style: 'currency',
-                          currency: 'USD',
+                          currency: 'RUB',
                           minimumFractionDigits: 0,
                           maximumFractionDigits: 0,
                         }).format(value)
@@ -81,9 +81,9 @@ const Index = () => {
                     />
                     <Tooltip 
                       formatter={(value) => 
-                        new Intl.NumberFormat('en-US', {
+                        new Intl.NumberFormat('ru-RU', {
                           style: 'currency',
-                          currency: 'USD',
+                          currency: 'RUB',
                         }).format(Number(value))
                       } 
                     />
@@ -96,8 +96,8 @@ const Index = () => {
           
           <Card>
             <CardHeader>
-              <CardTitle>Students by Level</CardTitle>
-              <CardDescription>Distribution of students across language levels</CardDescription>
+              <CardTitle>Студенты по уровням</CardTitle>
+              <CardDescription>Распределение студентов по уровням языка</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="h-80">
@@ -118,7 +118,7 @@ const Index = () => {
                       ))}
                     </Pie>
                     <Legend />
-                    <Tooltip formatter={(value) => `${value} students`} />
+                    <Tooltip formatter={(value) => `${value} студентов`} />
                   </PieChart>
                 </ResponsiveContainer>
               </div>
@@ -129,11 +129,11 @@ const Index = () => {
         <div>
           <Tabs defaultValue="recent">
             <div className="flex justify-between items-center">
-              <h2 className="text-xl font-semibold mb-2">Students</h2>
+              <h2 className="text-xl font-semibold mb-2">Студенты</h2>
               <TabsList>
-                <TabsTrigger value="recent">Recent</TabsTrigger>
-                <TabsTrigger value="overdue">Payment Overdue</TabsTrigger>
-                <TabsTrigger value="upcoming">Upcoming Lessons</TabsTrigger>
+                <TabsTrigger value="recent">Последние</TabsTrigger>
+                <TabsTrigger value="overdue">Просроченные платежи</TabsTrigger>
+                <TabsTrigger value="upcoming">Предстоящие уроки</TabsTrigger>
               </TabsList>
             </div>
             <TabsContent value="recent" className="mt-2">
@@ -143,7 +143,7 @@ const Index = () => {
               <Card>
                 <CardContent className="p-6">
                   <p className="text-muted-foreground">
-                    Students with overdue payments will appear here.
+                    Студенты с просроченными платежами будут отображены здесь.
                   </p>
                 </CardContent>
               </Card>
@@ -152,7 +152,7 @@ const Index = () => {
               <Card>
                 <CardContent className="p-6">
                   <p className="text-muted-foreground">
-                    Students with upcoming lessons will appear here.
+                    Студенты с предстоящими уроками будут отображены здесь.
                   </p>
                 </CardContent>
               </Card>

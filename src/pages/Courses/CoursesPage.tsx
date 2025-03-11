@@ -26,9 +26,9 @@ import { BookOpen, MoreHorizontal } from "lucide-react";
 const dummyCourses = [
   {
     id: "1",
-    name: "Intensive English Course",
-    level: "Intermediate",
-    teacher: "Emma Watson",
+    name: "Интенсивный курс английского",
+    level: "Средний",
+    teacher: "Эмма Уотсон",
     studentsCount: 12,
     startDate: "2023-09-01",
     endDate: "2023-12-15",
@@ -36,9 +36,9 @@ const dummyCourses = [
   },
   {
     id: "2",
-    name: "Business Spanish",
-    level: "Advanced",
-    teacher: "Miguel Rodriguez",
+    name: "Деловой испанский",
+    level: "Продвинутый",
+    teacher: "Мигель Родригез",
     studentsCount: 8,
     startDate: "2023-08-15",
     endDate: "2023-11-30",
@@ -46,9 +46,9 @@ const dummyCourses = [
   },
   {
     id: "3",
-    name: "French for Beginners",
-    level: "Beginner",
-    teacher: "Sophie Martin",
+    name: "Французский для начинающих",
+    level: "Начинающий",
+    teacher: "Софи Мартин",
     studentsCount: 15,
     startDate: "2023-10-01",
     endDate: "2024-01-15",
@@ -56,9 +56,9 @@ const dummyCourses = [
   },
   {
     id: "4",
-    name: "German Conversation",
-    level: "Upper Intermediate",
-    teacher: "Hans Schmidt",
+    name: "Немецкая разговорная речь",
+    level: "Выше среднего",
+    teacher: "Ханс Шмидт",
     studentsCount: 6,
     startDate: "2023-07-15",
     endDate: "2023-10-30",
@@ -66,9 +66,9 @@ const dummyCourses = [
   },
   {
     id: "5",
-    name: "Italian Culture & Language",
-    level: "Elementary",
-    teacher: "Lucia Bianchi",
+    name: "Итальянский язык и культура",
+    level: "Элементарный",
+    teacher: "Лючия Бьянки",
     studentsCount: 10,
     startDate: "2023-09-15",
     endDate: "2023-12-20",
@@ -82,12 +82,12 @@ const CourseList = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Course</TableHead>
-            <TableHead>Level</TableHead>
-            <TableHead>Teacher</TableHead>
-            <TableHead>Students</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
+            <TableHead>Курс</TableHead>
+            <TableHead>Уровень</TableHead>
+            <TableHead>Преподаватель</TableHead>
+            <TableHead>Студенты</TableHead>
+            <TableHead>Статус</TableHead>
+            <TableHead className="text-right">Действия</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -104,11 +104,11 @@ const CourseList = () => {
               <TableCell>{course.studentsCount}</TableCell>
               <TableCell>
                 {course.status === "active" ? (
-                  <Badge className="bg-green-500">Active</Badge>
+                  <Badge className="bg-green-500">Активный</Badge>
                 ) : course.status === "upcoming" ? (
-                  <Badge variant="outline" className="text-blue-500 border-blue-500">Upcoming</Badge>
+                  <Badge variant="outline" className="text-blue-500 border-blue-500">Предстоящий</Badge>
                 ) : (
-                  <Badge variant="secondary">Completed</Badge>
+                  <Badge variant="secondary">Завершенный</Badge>
                 )}
               </TableCell>
               <TableCell className="text-right">
@@ -116,19 +116,19 @@ const CourseList = () => {
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="icon" className="h-8 w-8">
                       <MoreHorizontal className="h-4 w-4" />
-                      <span className="sr-only">Open menu</span>
+                      <span className="sr-only">Открыть меню</span>
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
-                    <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                    <DropdownMenuLabel>Действия</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>View Details</DropdownMenuItem>
-                    <DropdownMenuItem>Edit Course</DropdownMenuItem>
-                    <DropdownMenuItem>Manage Students</DropdownMenuItem>
-                    <DropdownMenuItem>View Schedule</DropdownMenuItem>
+                    <DropdownMenuItem>Просмотр деталей</DropdownMenuItem>
+                    <DropdownMenuItem>Редактировать курс</DropdownMenuItem>
+                    <DropdownMenuItem>Управление студентами</DropdownMenuItem>
+                    <DropdownMenuItem>Просмотр расписания</DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem className="text-destructive">
-                      Cancel Course
+                      Отменить курс
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -147,23 +147,23 @@ const CoursesPage = () => {
       <div className="flex flex-col gap-6">
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Courses</h1>
+            <h1 className="text-3xl font-bold tracking-tight">Курсы</h1>
             <p className="text-muted-foreground">
-              Manage courses, lessons, and assign teachers and students.
+              Управление курсами, уроками, и назначение преподавателей и студентов.
             </p>
           </div>
           <Button>
             <BookOpen className="mr-2 h-4 w-4" />
-            Create Course
+            Создать курс
           </Button>
         </div>
         
         <Tabs defaultValue="all-courses">
           <TabsList>
-            <TabsTrigger value="all-courses">All Courses</TabsTrigger>
-            <TabsTrigger value="active">Active</TabsTrigger>
-            <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-            <TabsTrigger value="completed">Completed</TabsTrigger>
+            <TabsTrigger value="all-courses">Все курсы</TabsTrigger>
+            <TabsTrigger value="active">Активные</TabsTrigger>
+            <TabsTrigger value="upcoming">Предстоящие</TabsTrigger>
+            <TabsTrigger value="completed">Завершенные</TabsTrigger>
           </TabsList>
           
           <TabsContent value="all-courses" className="mt-6">
@@ -173,7 +173,7 @@ const CoursesPage = () => {
           <TabsContent value="active" className="mt-6">
             <Card>
               <CardContent className="p-6">
-                <p className="text-muted-foreground">Active courses will be displayed here.</p>
+                <p className="text-muted-foreground">Активные курсы будут отображены здесь.</p>
               </CardContent>
             </Card>
           </TabsContent>
@@ -181,7 +181,7 @@ const CoursesPage = () => {
           <TabsContent value="upcoming" className="mt-6">
             <Card>
               <CardContent className="p-6">
-                <p className="text-muted-foreground">Upcoming courses will be displayed here.</p>
+                <p className="text-muted-foreground">Предстоящие курсы будут отображены здесь.</p>
               </CardContent>
             </Card>
           </TabsContent>
@@ -189,7 +189,7 @@ const CoursesPage = () => {
           <TabsContent value="completed" className="mt-6">
             <Card>
               <CardContent className="p-6">
-                <p className="text-muted-foreground">Completed courses will be displayed here.</p>
+                <p className="text-muted-foreground">Завершенные курсы будут отображены здесь.</p>
               </CardContent>
             </Card>
           </TabsContent>

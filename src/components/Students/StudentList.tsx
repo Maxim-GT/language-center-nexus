@@ -35,7 +35,7 @@ interface Student {
 const dummyStudents: Student[] = [
   {
     id: "1",
-    fullName: "Maria Rodriguez",
+    fullName: "Мария Родригез",
     email: "maria.r@example.com",
     phone: "+1 (555) 123-4567",
     level: "intermediate",
@@ -45,7 +45,7 @@ const dummyStudents: Student[] = [
   },
   {
     id: "2",
-    fullName: "James Wilson",
+    fullName: "Джеймс Уилсон",
     email: "james.w@example.com",
     phone: "+1 (555) 234-5678",
     level: "beginner",
@@ -55,7 +55,7 @@ const dummyStudents: Student[] = [
   },
   {
     id: "3",
-    fullName: "Anna Johnson",
+    fullName: "Анна Джонсон",
     email: "anna.j@example.com",
     phone: "+1 (555) 345-6789",
     level: "advanced",
@@ -65,7 +65,7 @@ const dummyStudents: Student[] = [
   },
   {
     id: "4",
-    fullName: "David Lee",
+    fullName: "Дэвид Ли",
     email: "david.l@example.com",
     phone: "+1 (555) 456-7890",
     level: "upperIntermediate",
@@ -75,7 +75,7 @@ const dummyStudents: Student[] = [
   },
   {
     id: "5",
-    fullName: "Sarah Martinez",
+    fullName: "Сара Мартинез",
     email: "sarah.m@example.com",
     phone: "+1 (555) 567-8901",
     level: "elementary",
@@ -96,11 +96,11 @@ export const StudentList: React.FC = () => {
   const getStatusBadge = (status: Student["status"]) => {
     switch (status) {
       case "active":
-        return <Badge className="bg-green-500">Active</Badge>;
+        return <Badge className="bg-green-500">Активный</Badge>;
       case "paused":
-        return <Badge variant="outline" className="text-amber-500 border-amber-500">Paused</Badge>;
+        return <Badge variant="outline" className="text-amber-500 border-amber-500">Приостановлен</Badge>;
       case "completed":
-        return <Badge variant="secondary">Completed</Badge>;
+        return <Badge variant="secondary">Завершил</Badge>;
       default:
         return null;
     }
@@ -109,11 +109,11 @@ export const StudentList: React.FC = () => {
   const getPaymentStatusBadge = (status: Student["paymentStatus"]) => {
     switch (status) {
       case "paid":
-        return <Badge className="bg-green-500">Paid</Badge>;
+        return <Badge className="bg-green-500">Оплачено</Badge>;
       case "partially":
-        return <Badge className="bg-amber-500">Partial</Badge>;
+        return <Badge className="bg-amber-500">Частично</Badge>;
       case "overdue":
-        return <Badge variant="destructive">Overdue</Badge>;
+        return <Badge variant="destructive">Просрочено</Badge>;
       default:
         return null;
     }
@@ -122,17 +122,17 @@ export const StudentList: React.FC = () => {
   const getLevelText = (level: string) => {
     switch (level) {
       case "beginner":
-        return "Beginner (A1)";
+        return "Начинающий (A1)";
       case "elementary":
-        return "Elementary (A2)";
+        return "Элементарный (A2)";
       case "intermediate":
-        return "Intermediate (B1)";
+        return "Средний (B1)";
       case "upperIntermediate":
-        return "Upper Intermediate (B2)";
+        return "Выше среднего (B2)";
       case "advanced":
-        return "Advanced (C1)";
+        return "Продвинутый (C1)";
       case "proficient":
-        return "Proficient (C2)";
+        return "Свободный (C2)";
       default:
         return level;
     }
@@ -145,31 +145,31 @@ export const StudentList: React.FC = () => {
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
             type="search"
-            placeholder="Search students..."
+            placeholder="Поиск студентов..."
             className="pl-8"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <Button>Add Student</Button>
+        <Button>Добавить студента</Button>
       </div>
       
       <div className="rounded-md border">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Level</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Payment</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead>Имя</TableHead>
+              <TableHead>Уровень</TableHead>
+              <TableHead>Статус</TableHead>
+              <TableHead>Оплата</TableHead>
+              <TableHead className="text-right">Действия</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {filteredStudents.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={5} className="text-center text-muted-foreground py-6">
-                  No students found
+                  Студенты не найдены
                 </TableCell>
               </TableRow>
             ) : (
@@ -189,19 +189,19 @@ export const StudentList: React.FC = () => {
                       <DropdownMenuTrigger asChild>
                         <Button variant="ghost" size="icon" className="h-8 w-8">
                           <MoreHorizontal className="h-4 w-4" />
-                          <span className="sr-only">Open menu</span>
+                          <span className="sr-only">Открыть меню</span>
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                        <DropdownMenuLabel>Действия</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>View Profile</DropdownMenuItem>
-                        <DropdownMenuItem>Edit Details</DropdownMenuItem>
-                        <DropdownMenuItem>View Payments</DropdownMenuItem>
-                        <DropdownMenuItem>Course History</DropdownMenuItem>
+                        <DropdownMenuItem>Просмотр профиля</DropdownMenuItem>
+                        <DropdownMenuItem>Редактировать данные</DropdownMenuItem>
+                        <DropdownMenuItem>Просмотр платежей</DropdownMenuItem>
+                        <DropdownMenuItem>История курсов</DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem className="text-destructive">
-                          Delete Student
+                          Удалить студента
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>

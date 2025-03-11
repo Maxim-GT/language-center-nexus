@@ -58,7 +58,7 @@ export const Sidebar = () => {
             <SidebarMenuButton asChild>
               <SidebarMenuLink to="/">
                 <BarChart3 className="h-5 w-5" />
-                <span>Dashboard</span>
+                <span>Панель управления</span>
               </SidebarMenuLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -67,7 +67,7 @@ export const Sidebar = () => {
             <SidebarMenuButton asChild>
               <SidebarMenuLink to="/students">
                 <Users className="h-5 w-5" />
-                <span>Students</span>
+                <span>Студенты</span>
               </SidebarMenuLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -76,7 +76,7 @@ export const Sidebar = () => {
             <SidebarMenuButton asChild>
               <SidebarMenuLink to="/courses">
                 <BookOpen className="h-5 w-5" />
-                <span>Courses</span>
+                <span>Курсы</span>
               </SidebarMenuLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -85,7 +85,7 @@ export const Sidebar = () => {
             <SidebarMenuButton asChild>
               <SidebarMenuLink to="/teachers">
                 <GraduationCap className="h-5 w-5" />
-                <span>Teachers</span>
+                <span>Преподаватели</span>
               </SidebarMenuLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -94,7 +94,7 @@ export const Sidebar = () => {
             <SidebarMenuButton asChild>
               <SidebarMenuLink to="/finance">
                 <DollarSign className="h-5 w-5" />
-                <span>Finance</span>
+                <span>Финансы</span>
               </SidebarMenuLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -103,7 +103,7 @@ export const Sidebar = () => {
             <SidebarMenuButton asChild>
               <SidebarMenuLink to="/communications">
                 <MessageCircle className="h-5 w-5" />
-                <span>Communications</span>
+                <span>Коммуникации</span>
               </SidebarMenuLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -112,7 +112,7 @@ export const Sidebar = () => {
             <SidebarMenuButton asChild>
               <SidebarMenuLink to="/analytics">
                 <BarChart3 className="h-5 w-5" />
-                <span>Analytics</span>
+                <span>Аналитика</span>
               </SidebarMenuLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -122,7 +122,7 @@ export const Sidebar = () => {
       <SidebarFooter className="p-4 border-t border-sidebar-border">
         <button className="w-full flex items-center gap-2 px-3 py-2 rounded-md text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors">
           <LogOut className="h-5 w-5" />
-          <span>Logout</span>
+          <span>Выход</span>
         </button>
       </SidebarFooter>
     </SidebarComponent>

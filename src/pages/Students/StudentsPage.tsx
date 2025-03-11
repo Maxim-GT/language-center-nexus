@@ -11,17 +11,17 @@ const StudentsPage = () => {
     <MainLayout>
       <div className="flex flex-col gap-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Students</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Студенты</h1>
           <p className="text-muted-foreground">
-            Manage your student records, track progress, and handle payments.
+            Управление записями студентов, отслеживание прогресса и обработка платежей.
           </p>
         </div>
         
         <Tabs defaultValue="all-students">
           <TabsList>
-            <TabsTrigger value="all-students">All Students</TabsTrigger>
-            <TabsTrigger value="add-student">Add New Student</TabsTrigger>
-            <TabsTrigger value="student-interactions">Interaction History</TabsTrigger>
+            <TabsTrigger value="all-students">Все студенты</TabsTrigger>
+            <TabsTrigger value="add-student">Добавить студента</TabsTrigger>
+            <TabsTrigger value="student-interactions">История взаимодействий</TabsTrigger>
           </TabsList>
           
           <TabsContent value="all-students" className="mt-6">
@@ -31,9 +31,9 @@ const StudentsPage = () => {
           <TabsContent value="add-student" className="mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Register New Student</CardTitle>
+                <CardTitle>Регистрация нового студента</CardTitle>
                 <CardDescription>
-                  Add a new student to the database with their personal information and course preferences.
+                  Добавьте нового студента в базу данных с личной информацией и предпочтениями по курсам.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -45,13 +45,13 @@ const StudentsPage = () => {
           <TabsContent value="student-interactions" className="mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Student Interaction History</CardTitle>
+                <CardTitle>История взаимодействий со студентами</CardTitle>
                 <CardDescription>
-                  View a record of all student interactions, including calls, meetings, and messages.
+                  Просмотр записей всех взаимодействий со студентами, включая звонки, встречи и сообщения.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">Interaction history will be displayed here.</p>
+                <p className="text-muted-foreground">История взаимодействий будет отображена здесь.</p>
               </CardContent>
             </Card>
           </TabsContent>
